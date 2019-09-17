@@ -16,21 +16,21 @@ param.test_data_path = os.path.join(machine_path_prefix, 'test_model_data_for_ac
 
 param.test_name = 'e3sm_v1'
 #param.seasons = ["ANN"]  #seasons shouldn't be a parameter for area_mean_time_series, need to investigate while uncomment this line won't work
-param.test_timeseries_input = True
-param.test_start_yr = '2002'
-param.test_end_yr = '2008'
-param.ref_timeseries_input = True
-param.ref_start_yr = '2002'
-param.ref_end_yr = '2008'
 prefix = '/compyfs/www/zhan429/run_with_api/'
-param.results_dir = os.path.join(prefix, 'area_mean_no_refs')
-print(param.results_dir)
+param.results_dir = os.path.join(prefix, 'area_mean')
+attrs_core = vars(param)
+#print (', '.join("%s: %s" % item for item in attrs_core.items()))
 
-#ts_param = AreaMeanTimeSeriesParameter()
-#ts_param.ref_names = []
-#ts_param.results_dir = '/compyfs/www/zhan429/run_with_api/area_mean_no_refs'
-#print(dir(ts_param))
-#print(ts_param.results_dir)
+print('-------------------------------')
+
+ts_param = AreaMeanTimeSeriesParameter()
+ts_param.ref_names = ['none']
+ts_param.test_start_yr = '2002'
+ts_param.test_end_yr = '2004'
+
+# if the time range is invalid for reference datasets, only model results will be plotted
+ts_param.ref_start_yr = '2002'
+ts_param.ref_end_yr = '2004'
 
 #param.multiprocessing = True
 #param.num_workers =  40
@@ -39,7 +39,16 @@ print(param.results_dir)
 # addtion to the CoreParameter object.
 
 runner.sets_to_run = ['area_mean_time_series']
-runner.run_diags([param])
-#runner.run_diags([param,ts_param])
+
+print('*******************************')
+
+#attrs = vars(ts_param)
+#print (', '.join("%s: %s" % item for item in attrs.items()))
+
+
+
+#runner.run_diags([param])
+#runner.run_diags([ts_param])
+runner.run_diags([param, ts_param])
 
 
