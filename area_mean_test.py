@@ -28,10 +28,8 @@ param.results_dir = os.path.join(prefix, 'area_mean_with_obs')
 
 ts_param = AreaMeanTimeSeriesParameter()
 #ts_param.ref_names = ['none']   #This setting plot model data only
-#ts_param.output_format = ['png', 'pdf', 'svg']
-ts_param.test_name = 'e3sm_v1'
 ts_param.start_yr = '2002'
-ts_param.end_yr = '2004'
+ts_param.end_yr = '2008'
 
 runner.sets_to_run = ['area_mean_time_series']
 runner.run_diags([param, ts_param])
