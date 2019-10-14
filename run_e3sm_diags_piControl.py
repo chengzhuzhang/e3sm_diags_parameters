@@ -23,8 +23,8 @@ param.test_name = 'e3sm_v1_piControl'
 #For cori
 #prefix = '/global/project/projectdirs/acme/www/zhang40/'
 #For acme1
-prefix = '/var/www/acme/acme-diags/zhang40/tests/'
-param.results_dir = os.path.join(prefix, 'area_mean_picontrol_r1')
+#prefix = '/var/www/acme/acme-diags/zhang40/tests/'
+#param.results_dir = os.path.join(prefix, 'area_mean_picontrol_r1')
 param.multiprocessing = True
 param.num_workers =  25
 
