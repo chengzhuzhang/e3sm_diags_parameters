@@ -12,7 +12,7 @@ param.test_name = '20161118.beta0.FC5COSP.ne30_ne30.edison'
 param.multiprocessing = True
 param.num_workers = 40
 prefix = '/var/www/acme/acme-diags/zhang40/tests/'
-param.results_dir = os.path.join(prefix, 'all_vars_core')
+param.results_dir = os.path.join(prefix, 'all_vars_core_v2')
 
 #
 ###Set specific parameters for new sets
@@ -23,10 +23,10 @@ param.results_dir = os.path.join(prefix, 'all_vars_core')
 #ts_param.start_yr = '2002'
 #ts_param.end_yr = '2008'
 
-#runner.sets_to_run = ['lat_lon','zonal_mean_xy', 'zonal_mean_2d', 'polar', 'cosp_histogram', 'meridional_mean_2d']#, 'area_mean_time_series']
+runner.sets_to_run = ['lat_lon','zonal_mean_xy', 'zonal_mean_2d', 'polar', 'cosp_histogram', 'meridional_mean_2d']#, 'area_mean_time_series']
 #runner.run_diags([param, ts_param])
 
 #runner.sets_to_run = ['area_mean_time_series']
 #runner.run_diags([param, ts_param])
-runner.sets_to_run = ['lat_lon','zonal_mean_xy']
+#runner.sets_to_run = ['lat_lon','zonal_mean_xy']
 runner.run_diags([param])
